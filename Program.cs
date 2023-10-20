@@ -42,7 +42,7 @@ public class Matriz
 	{
 		double determinante = 0;
 		
-		for(int i = 0; i < colunas; i++)
+		for (int i = 0; i < colunas; i++)
 			determinante += dados[0, i] * Cofator(0, i);
 		
 		return determinante;
@@ -57,8 +57,8 @@ public class Matriz
 	{
 		Matriz r = new Matriz(linhas - 1, colunas - 1);
 		
-		for(int i = 0; i < r.linhas; i++)
-			for(int j = 0; j < r.colunas; j++)
+		for (int i = 0; i < r.linhas; i++)
+			for (int j = 0; j < r.colunas; j++)
 			{
 				int x = j < c ? j : j + 1;
 				int y = i < l ? i : i + 1;
@@ -73,18 +73,17 @@ public class Matriz
 
 	public Matriz MatrizCofatores()
 	{
-
-		var mCofatores = new Matriz(linhas, colunas);
+		var m = new Matriz(linhas, colunas);
 		
 		for(int i = 0; i < linhas; i++)
 		{
 			for(int j = 0; j < colunas; j++)
 			{
-				mCofatores.dados[i, j] = Cofator(i, j);
+				m.dados[i, j] = Cofator(i, j);
 			}
 		}
 		
-		return mCofatores;
+		return m;
 	}
 	
 	public Matriz Inv()
