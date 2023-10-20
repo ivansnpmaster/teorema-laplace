@@ -14,7 +14,7 @@ public class Program
 		
 		Matriz A = new Matriz(a);
 		
-		Console.WriteLine(A.Determinante());
+		Console.WriteLine(A.Det());
 	}
 }
 
@@ -38,7 +38,7 @@ public class Matriz
 		dados = new double[linhas, colunas];
 	}
 	
-	public double Determinante()
+	public double Det()
 	{
 		double determinante = 0;
 		
@@ -68,7 +68,7 @@ public class Matriz
 		if (r.linhas == 1)
 			return r.dados[0, 0];
 		
-		return r.Determinante();
+		return r.Det();
 	}
 
 	public Matriz MatrizCofatores()
