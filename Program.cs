@@ -75,13 +75,9 @@ public class Matriz
 	{
 		var m = new Matriz(linhas, colunas);
 		
-		for(int i = 0; i < linhas; i++)
-		{
-			for(int j = 0; j < colunas; j++)
-			{
+		for (int i = 0; i < linhas; i++)
+			for (int j = 0; j < colunas; j++)
 				m.dados[i, j] = Cofator(i, j);
-			}
-		}
 		
 		return m;
 	}
@@ -92,13 +88,9 @@ public class Matriz
 		var m = MatrizCofatores();
 		var t = new Matriz(m.linhas, m.colunas);
 		
-		for(int i = 0; i < linhas; i++)
-		{
-			for(int j = 0; j < colunas; j++)
-			{
+		for (int i = 0; i < linhas; i++)
+			for (int j = 0; j < colunas; j++)
 				t.dados[i, j] = m.dados[j, i] / det;
-			}
-		}
 		
 		return t;
 	}
