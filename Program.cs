@@ -6,10 +6,10 @@ public class Program
 	{
 		double[,] a = new double[,]
 		{
-			{2, 4, 7, 5},
-			{5, -6, 3, 7},
-			{-8, -15, 12, 2},
-			{3, -5, -1, 2}
+			{1, 2, 0, 1},
+			{-1, -3, 0, 1},
+			{3, 6, 1, 3},
+			{2, 4, 0, 3}
 		};
 		
 		Matriz A = new Matriz(a);
@@ -69,5 +69,38 @@ public class Matriz
 			return r.dados[0, 0];
 		
 		return r.Determinante();
+	}
+
+	public Matriz MatrizCofatores()
+	{
+
+		var mCofatores = new Matriz(linhas, colunas);
+		
+		for(int i = 0; i < linhas; i++)
+		{
+			for(int j = 0; j < colunas; j++)
+			{
+				mCofatores.dados[i, j] = Cofator(i, j);
+			}
+		}
+		
+		return mCofatores;
+	}
+	
+	public Matriz Inv()
+	{
+		var det = Det();
+		var m = MatrizCofatores();
+		var t = new Matriz(m.linhas, m.colunas);
+		
+		for(int i = 0; i < linhas; i++)
+		{
+			for(int j = 0; j < colunas; j++)
+			{
+				t.dados[i, j] = m.dados[j, i] / det;
+			}
+		}
+		
+		return t;
 	}
 }
